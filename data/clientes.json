@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cliente-1",
+    "tarjeta": "4111-xxxx-0001",
+    "estado": "admitido",
+    "motivo": ""
+  },
+  {
+    "id": 2,
+    "nombre": "Cliente-2",
+    "tarjeta": "4111-xxxx-0002",
+    "estado": "rechazado",
+    "motivo": "Tarjeta inválida"
+  }
+]
