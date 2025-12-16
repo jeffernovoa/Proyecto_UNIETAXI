@@ -12,7 +12,7 @@ Interfaz gráfica de UNIETAXI (Tkinter).
 import tkinter as tk
 from tkinter import ttk, messagebox
 import random
-from utils import to_canvas_coords
+from utils import to_canvas_coords, distancia_euclidiana
 
 MAP_WIDTH = 900
 MAP_HEIGHT = 560
