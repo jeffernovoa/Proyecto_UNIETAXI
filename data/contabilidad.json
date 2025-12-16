@@ -1,5 +1,8 @@
 {
-  "ganancias_por_taxi": {},
-  "ganancia_empresa": 0.0,
-  "ts": 0
+  "ganancias_por_taxi": {
+    "1": 4.912,
+    "4": 5.744
+  },
+  "ganancia_empresa": 2.6639999999999997,
+  "ts": 1765905318.990256
 }

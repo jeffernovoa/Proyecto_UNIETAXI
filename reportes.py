@@ -1,11 +1,13 @@
 # reportes.py
 """
-Generación de reportes:
-- Mensual: ganancias empresa y por taxi, conteo de viajes, calificaciones promedio.
-- Persiste en docs/reporte_mensual.md y data/contabilidad.json.
+Módulo de reportes:
+- Genera reporte mensual en Markdown con:
+  - Viajes finalizados.
+  - Ganancia empresa y por taxi.
+  - Calificaciones promedio por taxi y por cliente.
+- Usa data/contabilidad.json y data/viajes.json como fuentes.
 """
 
-import os
 import json
 from pathlib import Path
 from datetime import datetime
@@ -19,28 +21,25 @@ class Reportes:
         DOCS_DIR.mkdir(exist_ok=True)
 
     def generar_reporte_mensual(self):
-        # Cargar contabilidad
+        """Escribe docs/reporte_mensual.md con datos agregados del sistema."""
         contabilidad = {}
         fcont = DATA_DIR / "contabilidad.json"
         if fcont.exists():
             with open(fcont, "r", encoding="utf-8") as f:
                 contabilidad = json.load(f)
-        # Agregaciones
+
         por_taxi = self.sistema.agregacion_calidad_por_taxi()
         por_cliente = self.sistema.agregacion_calidad_por_cliente()
-        viajes_total = 0
-        ganancias_empresa = contabilidad.get("ganancia_empresa", 0.0)
-        ganancias_por_taxi = contabilidad.get("ganancias_por_taxi", {})
 
-        # Viajes
         fviajes = DATA_DIR / "viajes.json"
         viajes = []
         if fviajes.exists():
             with open(fviajes, "r", encoding="utf-8") as f:
                 viajes = json.load(f)
         viajes_total = len([v for v in viajes if v.get("estado") == "finalizado"])
+        ganancias_empresa = contabilidad.get("ganancia_empresa", 0.0)
+        ganancias_por_taxi = contabilidad.get("ganancias_por_taxi", {})
 
-        # Generar markdown
         ts = datetime.now().strftime("%Y-%m-%d %H:%M")
         lines = [
             f"# Reporte mensual UNIETAXI",

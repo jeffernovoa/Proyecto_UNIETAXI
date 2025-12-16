@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "cliente_id": 0,
+    "taxi_id": 1,
+    "origen": [
+      0.473,
+      0.814
+    ],
+    "destino": [
+      0.171,
+      0.727
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765905316.187082,
+    "costo_estimado": 6.14,
+    "calificacion_cliente": 4.2,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.14688054346058954,
+    "progreso": 0.9927398871675538,
+    "fin_ts": 1765905317.70612
+  },
+  {
+    "cliente_id": 14,
+    "taxi_id": 4,
+    "origen": [
+      0.058,
+      0.771
+    ],
+    "destino": [
+      0.192,
+      0.375
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765905316.191023,
+    "costo_estimado": 7.18,
+    "calificacion_cliente": 4.6,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.9479990004398997,
+    "progreso": 0.9759425092615557,
+    "fin_ts": 1765905318.9912992
+  }
+]

@@ -1,10 +1,10 @@
 # taxi.py
 """
-Taxi (hilo):
-- Patrulla cuando está libre.
-- Al asignarse, se mueve a origen (pickup) y luego a destino.
-- Actualiza progreso para ETA en tiempo real.
-- Finalmente reporta finalización y se libera.
+Hilo Taxi:
+- Si tiene servicio, se mueve a origen y luego a destino.
+- Actualiza progreso del viaje para calcular ETA en tiempo real.
+- Al finalizar, reporta calificación y libera disponibilidad.
+- Si no tiene servicio, patrulla con pequeños movimientos.
 """
 
 import time
@@ -23,10 +23,12 @@ class Taxi:
         self.cliente_actual = None
         self.admitido = admitido
 
+        # Registrar como disponible si está admitido
         if self.admitido:
             self.sistema.registrar_taxi_disponible(self)
 
     def run(self):
+        """Bucle principal del hilo taxi: servicio o patrulla."""
         while True:
             if self.cliente_actual and self.ocupado:
                 self.realizar_servicio()
@@ -35,29 +37,37 @@ class Taxi:
             time.sleep(0.2)
 
     def asignar_servicio(self, cliente):
+        """El sistema asigna un cliente; el taxi entra en estado ocupado."""
         self.cliente_actual = cliente
         self.ocupado = True
 
     def realizar_servicio(self):
+        """
+        Flujo del servicio:
+        1) Mover a origen (pickup).
+        2) Mover a destino, actualizando progreso.
+        3) Finalizar, calificar y liberar.
+        """
         cliente = self.cliente_actual
         if not cliente:
             return
 
-        # 1) Moverse al origen
+        # 1) Pickup: moverse al origen del cliente
         while distancia_euclidiana(self.ubicacion, cliente.origen) > 0.01:
             self.ubicacion = mover_hacia(self.ubicacion, cliente.origen, paso=0.01)
-            # progreso negativo indica acercamiento al pickup (-0.2..0)
+            # progreso 0 mientras va al pickup (se muestra la ETA de pickup)
             self.sistema.actualizar_progreso(self, progreso=0.0)
             time.sleep(0.05)
 
-        # 2) Recoger y moverse al destino
+        # 2) Traslado: moverse al destino
         cliente.en_viaje = True
         dist_total = distancia_euclidiana(cliente.origen, cliente.destino)
         dist_recorrida = 0.0
         prev = self.ubicacion
         while distancia_euclidiana(self.ubicacion, cliente.destino) > 0.01:
             self.ubicacion = mover_hacia(self.ubicacion, cliente.destino, paso=0.012)
-            dist_recorrida += distancia_euclidiana(prev, self.ubicacion)
+            inc = distancia_euclidiana(prev, self.ubicacion)
+            dist_recorrida += inc
             prev = self.ubicacion
             progreso = min(1.0, dist_recorrida / max(1e-6, dist_total))
             self.sistema.actualizar_progreso(self, progreso=progreso)
@@ -68,11 +78,12 @@ class Taxi:
         calificacion = cliente.calificar_servicio()
         self.sistema.finalizar_viaje(self, cliente, calificacion)
 
-        # 4) Liberar
+        # Liberar
         self.cliente_actual = None
         self.ocupado = False
 
     def patrullar(self):
+        """Movimiento aleatorio pequeño para simular disponibilidad."""
         jitter = (random.uniform(-0.003, 0.003), random.uniform(-0.003, 0.003))
         nx = min(1.0, max(0.0, self.ubicacion[0] + jitter[0]))
         ny = min(1.0, max(0.0, self.ubicacion[1] + jitter[1]))
