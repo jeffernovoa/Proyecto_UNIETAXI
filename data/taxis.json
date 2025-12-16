@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "conductor": "Conductor-1",
+    "placa": "UNI-001",
+    "estado": "admitido",
+    "motivo": ""
+  },
+  {
+    "id": 2,
+    "conductor": "Conductor-2",
+    "placa": "UNI-002",
+    "estado": "rechazado",
+    "motivo": "Licencia vencida"
+  }
+]
