@@ -18,6 +18,8 @@ MAP_WIDTH = 900
 MAP_HEIGHT = 560
 PADDING = 20
 
+historial_solicitudes = []
+
 def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     # Ventana base
     root = tk.Tk()
@@ -58,6 +60,8 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     btn_seguimiento.pack(fill="x", pady=4)
     btn_cerrar.pack(fill="x", pady=4)
     btn_reporte_mensual.pack(fill="x", pady=4)
+    btn_ver_historial = ttk.Button(tab_estado, text="Ver historial de solicitudes")
+    btn_ver_historial.pack(fill="x", pady=4)
 
     # Historial de solicitudes
     historial_text = tk.Text(tab_estado, height=12, wrap="word")
@@ -172,6 +176,7 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
 
     # Función para registrar en historial
     def registrar_en_historial(viaje_info, cliente, taxi):
+        global historial_solicitudes
         distancia = distancia_euclidiana(cliente.origen, taxi.ubicacion)
         texto = (
             f"🟢 Cliente C{cliente.id_cliente} pidió taxi\n"
@@ -187,7 +192,20 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
         historial_text.config(state="normal")
         historial_text.insert("end", texto)
         historial_text.config(state="disabled")
+        historial_solicitudes.append(texto)
 
+    def mostrar_historial():
+        if not historial_solicitudes:
+            messagebox.showinfo("UNIETAXI", "No hay solicitudes registradas todavía.")
+            return
+        ventana = tk.Toplevel(root)
+        ventana.title("Historial de solicitudes")
+        ventana.geometry("500x400")
+        text_box = tk.Text(ventana, wrap="word")
+        text_box.pack(fill="both", expand=True)
+        for entrada in historial_solicitudes:
+            text_box.insert("end", entrada + "\n")
+        text_box.config(state="disabled")
 
     def refrescar_viajes():
         """Rellena tabla de viajes activos y actualiza indicadores contables/pagos."""
@@ -232,10 +250,16 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
             tree_calidad.insert("", "end", values=("cliente", cliente_id, f"{prom:.2f}", cant))
 
     def tick():
-        """Bucle de refresco periódico del mapa y viajes activos."""
+        # Procesar cola de solicitudes desde el hilo principal
+        sistema.procesar_solicitudes(callback_historial=registrar_en_historial)
+
+        # Refrescar UI
         draw_entities()
         refrescar_viajes()
-        root.after(500, tick)
+        refrescar_afiliaciones()
+        refrescar_calidad()
+
+        root.after(1000, tick)
 
     def solicitar_cliente_aleatorio():
         candidatos = [c for c in clientes if c.admitido and not c.solicitud_enviada]
@@ -292,6 +316,7 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     btn_seguimiento.configure(command=seguimiento_aleatorio)
     btn_reporte_mensual.configure(command=generar_reporte_mensual)
     btn_detalle.configure(command=ver_detalle_viaje)
+    btn_ver_historial.configure(command=mostrar_historial)
 
     # Refresco periódico
     def tick():

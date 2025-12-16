@@ -148,8 +148,7 @@ class SistemaAtencion:
         """
         nuevas_solicitudes = []
         while not self.solicitudes.empty():
-            solicitud = self.solicitudes.get()
-            cliente = solicitud["cliente"]
+            cliente = self.solicitudes.get()
             taxi_asignado = self.seleccionar_taxi_cliente(cliente)
             if taxi_asignado:
                 viaje_info = self.asignar_viaje(cliente, taxi_asignado)
@@ -157,11 +156,11 @@ class SistemaAtencion:
                 if callback_historial:
                     callback_historial(viaje_info, cliente, taxi_asignado)
             else:
-                nuevas_solicitudes.append({"cliente": cliente})
+                nuevas_solicitudes.append(cliente)
 
         # Reencolar las solicitudes que no se pudieron atender
-        for s in nuevas_solicitudes:
-            self.solicitudes.put(s)
+        for c in nuevas_solicitudes:
+            self.solicitudes.put(c)
 
     def seleccionar_taxi_cliente(self, cliente):
         """

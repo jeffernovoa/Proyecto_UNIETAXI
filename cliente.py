@@ -33,7 +33,7 @@ class Cliente:
     def empujar_solicitud(self):
         """Encola solicitud del cliente y dispara el procesamiento."""
         self.sistema.recibir_solicitud(self)
-        self.sistema.procesar_solicitudes()
+        self.solicitud_enviada = True
 
     def calificar_servicio(self):
         """Devuelve una calificación simulada (3.5 a 5.0)."""
