@@ -45,6 +45,10 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     info_var = tk.StringVar(value="Sistema iniciado.")
     ttk.Label(tab_estado, textvariable=info_var, anchor="w").pack(fill="x", pady=5)
 
+    # Variable para mostrar último mensaje de solicitud
+    solicitud_info_var = tk.StringVar(value="")
+    ttk.Label(tab_estado, textvariable=solicitud_info_var, anchor="w", wraplength=400, justify="left").pack(fill="x", pady=5)
+
     # Botones principales
     btn_solicitar = ttk.Button(tab_estado, text="Generar solicitud de taxi (cliente aleatorio)")
     btn_seguimiento = ttk.Button(tab_estado, text="Ejecutar seguimiento calidad (5 servicios)")
@@ -54,6 +58,11 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     btn_seguimiento.pack(fill="x", pady=4)
     btn_cerrar.pack(fill="x", pady=4)
     btn_reporte_mensual.pack(fill="x", pady=4)
+
+    # Historial de solicitudes
+    historial_text = tk.Text(tab_estado, height=12, wrap="word")
+    historial_text.pack(fill="x", pady=5)
+    historial_text.config(state="disabled")
 
     # Tab: Viajes activos
     tab_viajes = ttk.Frame(notebook)
@@ -161,6 +170,25 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
         # Info de estado global
         info_var.set(f"Solicitudes en cola: {sistema.num_solicitudes()} | Viajes activos: {sistema.viajes_activos()} | Ganancia empresa: €{sistema.ganancia_empresa:.2f}")
 
+    # Función para registrar en historial
+    def registrar_en_historial(viaje_info, cliente, taxi):
+        distancia = distancia_euclidiana(cliente.origen, taxi.ubicacion)
+        texto = (
+            f"🟢 Cliente C{cliente.id_cliente} pidió taxi\n"
+            f"Origen: {cliente.origen}\n"
+            f"Destino: {cliente.destino}\n"
+            f"Taxi asignado: T{taxi.id_taxi} ({taxi.placa})\n"
+            f"Conductor: {taxi.nombre_conductor}\n"
+            f"ETA recogida: {viaje_info['eta_pickup']:.1f}s\n"
+            f"Distancia al taxi: {distancia:.3f}\n"
+            f"-----------------------------\n"
+        )
+        solicitud_info_var.set(texto)
+        historial_text.config(state="normal")
+        historial_text.insert("end", texto)
+        historial_text.config(state="disabled")
+
+
     def refrescar_viajes():
         """Rellena tabla de viajes activos y actualiza indicadores contables/pagos."""
         tree_viajes.delete(*tree_viajes.get_children())
@@ -210,15 +238,15 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
         root.after(500, tick)
 
     def solicitar_cliente_aleatorio():
-        """Genera una solicitud para un cliente aleatorio admitido que aún no haya solicitado."""
         candidatos = [c for c in clientes if c.admitido and not c.solicitud_enviada]
         if not candidatos:
             messagebox.showinfo("UNIETAXI", "Todos los clientes admitidos ya enviaron solicitud.")
             return
         c = random.choice(candidatos)
         c.empujar_solicitud()
-        messagebox.showinfo("UNIETAXI", f"Solicitud del cliente {c.id_cliente} enviada.")
-        refrescar_viajes()
+        # Aquí pasamos el callback
+        sistema.procesar_solicitudes(callback_historial=registrar_en_historial)
+        draw_entities()
 
     def cerrar_contabilidad():
         """Ejecuta el cierre contable manual (persistencia contabilidad)."""
@@ -265,7 +293,15 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     btn_reporte_mensual.configure(command=generar_reporte_mensual)
     btn_detalle.configure(command=ver_detalle_viaje)
 
-    # Primer refresco
+    # Refresco periódico
+    def tick():
+        draw_entities()
+        refrescar_viajes()
+        refrescar_afiliaciones()
+        refrescar_calidad()
+        root.after(1000, tick)
+
+    # Primer refresco antes de entrar al bucle
     refrescar_afiliaciones()
     refrescar_calidad()
     tick()

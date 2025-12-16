@@ -141,20 +141,27 @@ class SistemaAtencion:
         """Encola la solicitud del cliente."""
         self.solicitudes.put(cliente)
 
-    def procesar_solicitudes(self):
+    def procesar_solicitudes(self, callback_historial=None):
         """
         Intenta asignar taxis a las solicitudes en cola.
         Reencola si no hay taxis cercanos para evitar bucles vacíos.
         """
+        nuevas_solicitudes = []
         while not self.solicitudes.empty():
-            cliente = self.solicitudes.get()
+            solicitud = self.solicitudes.get()
+            cliente = solicitud["cliente"]
             taxi_asignado = self.seleccionar_taxi_cliente(cliente)
             if taxi_asignado:
-                self.asignar_viaje(cliente, taxi_asignado)
-                cliente.solicitud_enviada = True
+                viaje_info = self.asignar_viaje(cliente, taxi_asignado)
+                # Llamamos al callback para registrar en historial
+                if callback_historial:
+                    callback_historial(viaje_info, cliente, taxi_asignado)
             else:
-                self.solicitudes.put(cliente)
-                break
+                nuevas_solicitudes.append({"cliente": cliente})
+
+        # Reencolar las solicitudes que no se pudieron atender
+        for s in nuevas_solicitudes:
+            self.solicitudes.put(s)
 
     def seleccionar_taxi_cliente(self, cliente):
         """

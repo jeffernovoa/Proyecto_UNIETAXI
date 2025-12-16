@@ -1,332 +1,403 @@
 [
   {
-    "cliente_id": 5,
-    "taxi_id": 6,
-    "origen": [
-      0.153,
-      0.059
-    ],
-    "destino": [
-      0.227,
-      0.54
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907125.852318,
-    "costo_estimado": 7.87,
-    "calificacion_cliente": 3.6,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.6084021499952754,
-    "progreso": 0.986316870836375,
-    "taxi_calificacion": 4.82,
-    "fin_ts": 1765907128.694271
-  },
-  {
-    "cliente_id": 17,
+    "cliente_id": 8,
     "taxi_id": 2,
     "origen": [
-      0.33,
-      0.859
-    ],
-    "destino": [
-      0.056,
-      0.383
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907128.861495,
-    "costo_estimado": 8.49,
-    "calificacion_cliente": 3.7,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.03549241681672659,
-    "progreso": 1.0,
-    "taxi_calificacion": 4.36,
-    "fin_ts": 1765907131.436818
-  },
-  {
-    "cliente_id": 3,
-    "taxi_id": 4,
-    "origen": [
-      0.327,
-      0.826
-    ],
-    "destino": [
-      0.515,
-      0.409
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907129.859065,
-    "costo_estimado": 7.57,
-    "calificacion_cliente": 3.9,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.7746356478872464,
-    "progreso": 0.9706616672673167,
-    "taxi_calificacion": 4.31,
-    "fin_ts": 1765907132.7763898
-  },
-  {
-    "cliente_id": 13,
-    "taxi_id": 10,
-    "origen": [
-      0.566,
-      0.582
+      0.373,
+      0.507
     ],
     "destino": [
       0.709,
-      0.249
+      0.816
     ],
     "estado": "finalizado",
-    "inicio_ts": 1765907129.861709,
-    "costo_estimado": 6.62,
-    "calificacion_cliente": 3.8,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.32169776157469754,
-    "progreso": 0.9933614486536091,
-    "taxi_calificacion": 5.0,
-    "fin_ts": 1765907131.9230552
-  },
-  {
-    "cliente_id": 1,
-    "taxi_id": 6,
-    "origen": [
-      0.189,
-      0.485
-    ],
-    "destino": [
-      0.587,
-      0.688
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907129.862085,
-    "costo_estimado": 7.47,
+    "inicio_ts": 1765910303.964231,
+    "costo_estimado": 7.56,
     "calificacion_cliente": 4.0,
     "placa_taxi": "UNI-001",
     "conductor": "Conductor-1",
-    "eta_pickup": 0.2878641562112727,
-    "progreso": 0.9669173117619027,
-    "taxi_calificacion": 4.82,
-    "fin_ts": 1765907132.133326
-  },
-  {
-    "cliente_id": 3,
-    "taxi_id": 1,
-    "origen": [
-      0.327,
-      0.826
-    ],
-    "destino": [
-      0.515,
-      0.409
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907129.8622432,
-    "costo_estimado": 7.57,
-    "calificacion_cliente": 4.1,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.7812568646370385,
-    "progreso": 0.9706616672673195,
-    "taxi_calificacion": 4.69,
-    "fin_ts": 1765907132.788193
-  },
-  {
-    "cliente_id": 7,
-    "taxi_id": 9,
-    "origen": [
-      0.7,
-      0.814
-    ],
-    "destino": [
-      0.057,
-      0.807
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907133.8737159,
-    "costo_estimado": 9.43,
-    "calificacion_cliente": 4.5,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.6056559752749786,
-    "progreso": 0.9890549230311465,
-    "taxi_calificacion": 4.03,
-    "fin_ts": 1765907137.533525
-  },
-  {
-    "cliente_id": 0,
-    "taxi_id": 2,
-    "origen": [
-      0.117,
-      0.306
-    ],
-    "destino": [
-      0.212,
-      0.358
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907133.874447,
-    "costo_estimado": 4.08,
-    "calificacion_cliente": 4.8,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.43498128138467,
-    "progreso": 0.9972252406442856,
-    "taxi_calificacion": 4.36,
-    "fin_ts": 1765907134.811397
-  },
-  {
-    "cliente_id": 2,
-    "taxi_id": 10,
-    "origen": [
-      0.639,
-      0.339
-    ],
-    "destino": [
-      0.233,
-      0.325
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907139.372638,
-    "costo_estimado": 7.06,
-    "calificacion_cliente": 4.5,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.6298568565304944,
-    "progreso": 1.0,
-    "taxi_calificacion": 5.0,
-    "fin_ts": 1765907141.939035
-  },
-  {
-    "cliente_id": 6,
-    "taxi_id": 2,
-    "origen": [
-      0.211,
-      0.436
-    ],
-    "destino": [
-      0.21,
-      0.197
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907140.8973172,
-    "costo_estimado": 5.39,
-    "calificacion_cliente": 3.7,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.33059509944115123,
-    "progreso": 0.9539665450327391,
-    "taxi_calificacion": 4.36,
-    "fin_ts": 1765907142.281771
-  },
-  {
-    "cliente_id": 9,
-    "taxi_id": 6,
-    "origen": [
-      0.609,
-      0.749
-    ],
-    "destino": [
-      0.942,
-      0.53
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907145.915515,
-    "costo_estimado": 6.99,
-    "calificacion_cliente": 4.5,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.2602567924226623,
-    "progreso": 0.9935771069333734,
-    "taxi_calificacion": 4.82,
-    "fin_ts": 1765907148.004768
+    "eta_pickup": 0.49842828991719523,
+    "progreso": 0.9989412613303691,
+    "taxi_calificacion": 4.32,
+    "fin_ts": 1765910306.705431
   },
   {
     "cliente_id": 10,
-    "taxi_id": 3,
-    "origen": [
-      0.553,
-      0.578
-    ],
-    "destino": [
-      0.358,
-      0.942
-    ],
-    "estado": "finalizado",
-    "inicio_ts": 1765907150.9344351,
-    "costo_estimado": 7.13,
-    "calificacion_cliente": 4.9,
-    "placa_taxi": "UNI-001",
-    "conductor": "Conductor-1",
-    "eta_pickup": 0.6944953495889661,
-    "progreso": 0.9589727146466969,
-    "taxi_calificacion": 4.04,
-    "fin_ts": 1765907153.6195998
-  },
-  {
-    "cliente_id": 4,
     "taxi_id": 6,
     "origen": [
-      0.856,
-      0.476
+      0.895,
+      0.377
     ],
     "destino": [
-      0.612,
-      0.21
+      0.168,
+      0.406
     ],
     "estado": "finalizado",
-    "inicio_ts": 1765907153.948656,
-    "costo_estimado": 6.61,
-    "calificacion_cliente": 5.0,
+    "inicio_ts": 1765910306.976747,
+    "costo_estimado": 10.28,
+    "calificacion_cliente": 4.7,
     "placa_taxi": "UNI-001",
     "conductor": "Conductor-1",
-    "eta_pickup": 0.5074316499311345,
-    "progreso": 0.9973408909348839,
-    "taxi_calificacion": 4.82,
-    "fin_ts": 1765907156.2753239
+    "eta_pickup": 0.6797944154841044,
+    "progreso": 0.9895843845243752,
+    "taxi_calificacion": 4.62,
+    "fin_ts": 1765910310.952414,
+    "seguimiento_auditoria": true
+  },
+  {
+    "cliente_id": 5,
+    "taxi_id": 5,
+    "origen": [
+      0.482,
+      0.251
+    ],
+    "destino": [
+      0.351,
+      0.751
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910306.978601,
+    "costo_estimado": 8.17,
+    "calificacion_cliente": 3.8,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.3418300800188507,
+    "progreso": 0.9750884366097208,
+    "taxi_calificacion": 4.76,
+    "fin_ts": 1765910309.592391
+  },
+  {
+    "cliente_id": 1,
+    "taxi_id": 2,
+    "origen": [
+      0.739,
+      0.71
+    ],
+    "destino": [
+      0.587,
+      0.176
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910306.977538,
+    "costo_estimado": 8.55,
+    "calificacion_cliente": 3.9,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.5583519208123663,
+    "progreso": 0.9942154109634038,
+    "taxi_calificacion": 4.32,
+    "fin_ts": 1765910310.194742
+  },
+  {
+    "cliente_id": 12,
+    "taxi_id": 7,
+    "origen": [
+      0.466,
+      0.826
+    ],
+    "destino": [
+      0.757,
+      0.825
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910306.9805849,
+    "costo_estimado": 5.91,
+    "calificacion_cliente": 4.4,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.46096824497828925,
+    "progreso": 0.9896848780602692,
+    "taxi_calificacion": 4.41,
+    "fin_ts": 1765910308.786648,
+    "seguimiento_auditoria": true
+  },
+  {
+    "cliente_id": 14,
+    "taxi_id": 8,
+    "origen": [
+      0.413,
+      0.184
+    ],
+    "destino": [
+      0.583,
+      0.727
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910308.9852018,
+    "costo_estimado": 8.69,
+    "calificacion_cliente": 4.3,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.6065800568954538,
+    "progreso": 0.9912310236293198,
+    "taxi_calificacion": 4.54,
+    "fin_ts": 1765910312.254405,
+    "seguimiento_auditoria": true
   },
   {
     "cliente_id": 9,
-    "taxi_id": 5,
+    "taxi_id": 7,
     "origen": [
-      0.609,
-      0.749
+      0.755,
+      0.714
     ],
     "destino": [
-      0.942,
-      0.53
+      0.752,
+      0.732
     ],
     "estado": "finalizado",
-    "inicio_ts": 1765907160.9671109,
-    "costo_estimado": 6.99,
+    "inicio_ts": 1765910311.361689,
+    "costo_estimado": 3.18,
+    "calificacion_cliente": 3.7,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.5094304765412414,
+    "progreso": 0.6575959492214295,
+    "taxi_calificacion": 4.41,
+    "fin_ts": 1765910312.036963,
+    "seguimiento_auditoria": true
+  },
+  {
+    "cliente_id": 0,
+    "taxi_id": 3,
+    "origen": [
+      0.499,
+      0.351
+    ],
+    "destino": [
+      0.627,
+      0.61
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910311.9972749,
+    "costo_estimado": 5.89,
+    "calificacion_cliente": 4.3,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.6207752179712752,
+    "progreso": 0.9968740454927743,
+    "taxi_calificacion": 4.82,
+    "fin_ts": 1765910314.0497851
+  },
+  {
+    "cliente_id": 4,
+    "taxi_id": 9,
+    "origen": [
+      0.091,
+      0.642
+    ],
+    "destino": [
+      0.348,
+      0.819
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910311.99793,
+    "costo_estimado": 6.12,
+    "calificacion_cliente": 4.5,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.22013624003655938,
+    "progreso": 0.9998254073387498,
+    "taxi_calificacion": 4.06,
+    "fin_ts": 1765910313.715669
+  },
+  {
+    "cliente_id": 17,
+    "taxi_id": 5,
+    "origen": [
+      0.17,
+      0.669
+    ],
+    "destino": [
+      0.093,
+      0.701
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910311.998385,
+    "costo_estimado": 3.83,
+    "calificacion_cliente": 4.8,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.9409162145934582,
+    "progreso": 1.0,
+    "taxi_calificacion": 4.76,
+    "fin_ts": 1765910313.378164
+  },
+  {
+    "cliente_id": 3,
+    "taxi_id": 9,
+    "origen": [
+      0.23,
+      0.911
+    ],
+    "destino": [
+      0.42,
+      0.278
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910320.590824,
+    "costo_estimado": 9.61,
     "calificacion_cliente": 4.2,
     "placa_taxi": "UNI-001",
     "conductor": "Conductor-1",
-    "eta_pickup": 0.8914984476183543,
+    "eta_pickup": 0.7487921969171292,
+    "progreso": 0.9804809488006812,
+    "taxi_calificacion": 4.06,
+    "fin_ts": 1765910324.3178802
+  },
+  {
+    "cliente_id": 13,
+    "taxi_id": 2,
+    "origen": [
+      0.484,
+      0.163
+    ],
+    "destino": [
+      0.283,
+      0.546
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910320.5915399,
+    "costo_estimado": 7.33,
+    "calificacion_cliente": 4.6,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.5390178638707788,
+    "progreso": 0.9987538336153796,
+    "taxi_calificacion": 4.32,
+    "fin_ts": 1765910323.063135,
+    "seguimiento_auditoria": true
+  },
+  {
+    "cliente_id": 6,
+    "taxi_id": 3,
+    "origen": [
+      0.648,
+      0.635
+    ],
+    "destino": [
+      0.473,
+      0.471
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910323.7006788,
+    "costo_estimado": 5.4,
+    "calificacion_cliente": 3.6,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.10113151641236054,
     "progreso": 1.0,
-    "taxi_calificacion": 4.92,
-    "fin_ts": 1765907163.8609312
+    "taxi_calificacion": 4.82,
+    "fin_ts": 1765910325.034148
+  },
+  {
+    "cliente_id": 16,
+    "taxi_id": 11,
+    "origen": [
+      0.652,
+      0.241
+    ],
+    "destino": [
+      0.4,
+      0.399
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910327.053334,
+    "costo_estimado": 5.97,
+    "calificacion_cliente": 4.8,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.8014104112761211,
+    "progreso": 0.9682764809141188,
+    "taxi_calificacion": 4.01,
+    "fin_ts": 1765910329.360683
+  },
+  {
+    "cliente_id": 2,
+    "taxi_id": 1,
+    "origen": [
+      0.806,
+      0.908
+    ],
+    "destino": [
+      0.826,
+      0.089
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910329.14546,
+    "costo_estimado": 11.19,
+    "calificacion_cliente": 3.7,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.7688859905834001,
+    "progreso": 0.9960400525365188,
+    "taxi_calificacion": 4.7,
+    "fin_ts": 1765910333.694261
+  },
+  {
+    "cliente_id": 15,
+    "taxi_id": 9,
+    "origen": [
+      0.553,
+      0.296
+    ],
+    "destino": [
+      0.06,
+      0.528
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910330.78806,
+    "costo_estimado": 8.45,
+    "calificacion_cliente": 4.3,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.8448248637239404,
+    "progreso": 0.9690553240611043,
+    "taxi_calificacion": 4.06,
+    "fin_ts": 1765910334.079895
+  },
+  {
+    "cliente_id": 7,
+    "taxi_id": 0,
+    "origen": [
+      0.89,
+      0.467
+    ],
+    "destino": [
+      0.547,
+      0.731
+    ],
+    "estado": "finalizado",
+    "inicio_ts": 1765910335.091198,
+    "costo_estimado": 7.33,
+    "calificacion_cliente": 4.3,
+    "placa_taxi": "UNI-001",
+    "conductor": "Conductor-1",
+    "eta_pickup": 0.9959479854191644,
+    "progreso": 0.9703496130023112,
+    "taxi_calificacion": 4.45,
+    "fin_ts": 1765910338.022026
   },
   {
     "cliente_id": 11,
     "taxi_id": 1,
     "origen": [
-      0.568,
-      0.464
+      0.923,
+      0.141
     ],
     "destino": [
-      0.094,
-      0.384
+      0.762,
+      0.348
     ],
     "estado": "finalizado",
-    "inicio_ts": 1765907170.9994292,
-    "costo_estimado": 7.81,
-    "calificacion_cliente": 4.6,
+    "inicio_ts": 1765910342.126019,
+    "costo_estimado": 5.62,
+    "calificacion_cliente": 4.4,
     "placa_taxi": "UNI-001",
     "conductor": "Conductor-1",
-    "eta_pickup": 0.45885721289809644,
-    "progreso": 0.998536206432937,
-    "taxi_calificacion": 4.69,
-    "fin_ts": 1765907173.722935
+    "eta_pickup": 0.5726929074188453,
+    "progreso": 0.960950525501614,
+    "taxi_calificacion": 4.7,
+    "fin_ts": 1765910343.9625869
   }
 ]
