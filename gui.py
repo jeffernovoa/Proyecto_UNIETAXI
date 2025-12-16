@@ -134,6 +134,22 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
             canvas.create_oval(dx - 5, dy - 5, dx + 5, dy + 5, fill="blue", outline="")
             canvas.create_text(ox + 10, oy - 12, text=f"C{cliente.id_cliente} ({cliente.origen}→{cliente.destino})", fill="#333", anchor="w")
 
+            # Mostrar texto explicativo si el cliente tiene viaje activo
+            for viaje in sistema.listar_viajes_activos():
+                if viaje["cliente_id"] == cliente.id_cliente:
+                    taxi_id = viaje["taxi_id"]
+                    taxi = next((t for t in taxis if t.id_taxi == taxi_id), None)
+                    if taxi:
+                        distancia = distancia_euclidiana(cliente.origen, taxi.ubicacion)
+                        texto = (
+                            f"C{cliente.id_cliente} pidió taxi\n"
+                            f"Origen: {cliente.origen}\n"
+                            f"Destino: {cliente.destino}\n"
+                            f"Taxi asignado: T{taxi_id} ({taxi.placa})\n"
+                            f"Distancia al taxi: {distancia:.3f}"
+                        )
+                        canvas.create_text(ox + 10, oy + 12, text=texto, fill="black", anchor="nw", font=("Arial", 8))
+
         # Taxis: triángulos; naranja si ocupados, amarillo si libres
         for taxi in taxis:
             tx, ty = to_canvas_coords(*taxi.ubicacion, MAP_WIDTH, MAP_HEIGHT, PADDING)
