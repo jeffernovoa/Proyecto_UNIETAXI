@@ -1,0 +1,8 @@
+[
+  "🟢 Cliente C4 pidió taxi\nOrigen: (0.3, 0.414)\nDestino: (0.629, 0.27)\nTaxi asignado: T5 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.7s\nDistancia al taxi: 0.144\n-----------------------------\n",
+  "🟢 Cliente C2 pidió taxi\nOrigen: (0.472, 0.373)\nDestino: (0.093, 0.93)\nTaxi asignado: T6 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.2s\nDistancia al taxi: 0.035\n-----------------------------\n",
+  "🟢 Cliente C7 pidió taxi\nOrigen: (0.237, 0.493)\nDestino: (0.795, 0.728)\nTaxi asignado: T0 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.6s\nDistancia al taxi: 0.125\n-----------------------------\n",
+  "🟢 Cliente C12 pidió taxi\nOrigen: (0.274, 0.377)\nDestino: (0.548, 0.145)\nTaxi asignado: T11 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.9s\nDistancia al taxi: 0.176\n-----------------------------\n",
+  "🟢 Cliente C8 pidió taxi\nOrigen: (0.62, 0.427)\nDestino: (0.169, 0.713)\nTaxi asignado: T4 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.4s\nDistancia al taxi: 0.086\n-----------------------------\n",
+  "🟢 Cliente C9 pidió taxi\nOrigen: (0.628, 0.205)\nDestino: (0.318, 0.623)\nTaxi asignado: T5 (UNI-001)\nConductor: Conductor-1\nETA recogida: 0.3s\nDistancia al taxi: 0.066\n-----------------------------\n"
+]

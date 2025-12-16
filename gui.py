@@ -9,6 +9,8 @@ Interfaz gráfica de UNIETAXI (Tkinter).
 - Pestañas de afiliaciones (con filtros) y reportes de calidad.
 """
 
+import json
+from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, messagebox
 import random
@@ -19,6 +21,7 @@ MAP_HEIGHT = 560
 PADDING = 20
 
 historial_solicitudes = []
+HISTORIAL_FILE = Path("data/historial.json")
 
 def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
     # Ventana base
@@ -174,6 +177,11 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
         # Info de estado global
         info_var.set(f"Solicitudes en cola: {sistema.num_solicitudes()} | Viajes activos: {sistema.viajes_activos()} | Ganancia empresa: €{sistema.ganancia_empresa:.2f}")
 
+    def guardar_historial():
+        HISTORIAL_FILE.parent.mkdir(exist_ok=True)  # crea carpeta data si no existe
+        with open(HISTORIAL_FILE, "w", encoding="utf-8") as f:
+            json.dump(historial_solicitudes, f, ensure_ascii=False, indent=2)
+
     # Función para registrar en historial
     def registrar_en_historial(viaje_info, cliente, taxi):
         global historial_solicitudes
@@ -193,6 +201,8 @@ def iniciar_gui(sistema, clientes, taxis, afiliador, reportes):
         historial_text.insert("end", texto)
         historial_text.config(state="disabled")
         historial_solicitudes.append(texto)
+
+        guardar_historial()
 
     def mostrar_historial():
         if not historial_solicitudes:
